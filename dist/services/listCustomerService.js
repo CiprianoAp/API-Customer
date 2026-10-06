@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListCustomersService = void 0;
-const prismas_1 = __importDefault(require("../prismas"));
+const prisma_1 = __importDefault(require("../prisma"));
 class ListCustomersService {
     async execute() {
-        const customers = await prismas_1.default.customer.findMany();
+        const customers = await prisma_1.default.customer.findMany();
         return customers;
     }
 }

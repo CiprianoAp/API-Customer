@@ -1,6 +1,6 @@
 import { ok } from "node:assert";
 // import { PrismaClient } from "../prisma";
-import prismaClient from "../prismas";
+import prismaClient from "../prisma";
 interface CreateCustomerProps{
     name: string,
     email: string
