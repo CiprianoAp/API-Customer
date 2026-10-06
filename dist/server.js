@@ -9,7 +9,10 @@ const routes_1 = require("./routes");
 const app = (0, fastify_1.default)({
     logger: true,
 });
-app.get;
+//meedllewere
+app.setErrorHandler((error, request, reply) => {
+    reply.code(400).send({ message: error.message });
+});
 const start = async () => {
     //Chamar a rota
     await app.register(routes_1.router);

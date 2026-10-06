@@ -5,7 +5,13 @@ import { router } from "./routes";
 const app = fastify({
   logger: true,
 });
-app.get;
+
+//meedllewere
+app.setErrorHandler((error, request, reply)=>{
+    reply.code(400).send({message: error.message})
+})
+
+
 const start = async () => {
   //Chamar a rota
   await app.register(router);
@@ -17,7 +23,7 @@ const start = async () => {
   } catch (err) {
 
     process.exit(1);
-    
+
   }
 };
 //Executar a funcao
