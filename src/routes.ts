@@ -1,0 +1,26 @@
+import { FastifyCorsOptions } from "@fastify/cors";
+import {
+  FastifyInstance,
+  FastifyPluginAsync,
+  FastifyRegister,
+  FastifyReply,
+  FastifyRequest,
+} from "fastify";
+
+import { CreateCustomerController } from "./controller/createCustumerController";
+import { request } from "node:http";
+//Funcao principal das rotas
+export async function router(
+  fastify: FastifyInstance,
+  option: FastifyCorsOptions,
+) {
+
+    //Rota get
+    fastify.get("/teste", async (request: FastifyRequest, reply: FastifyReply) =>{
+        return {ok: true}
+    })
+    //Rota post 
+    fastify.post("customer", async (request: FastifyRequest, reply: FastifyReply)=>{
+        return new CreateCustomerController().handle(request, reply)
+    })
+}

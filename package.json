@@ -1,0 +1,22 @@
+{
+  "name": "bakaofront",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsc --watch & nodemon",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.0",
+    "@prisma/client": "^7.10.0",
+    "fastify": "^5.12.5",
+    "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "prisma": "^7.10.0",
+    "typescript": "^7.0.2"
+  }
+}
