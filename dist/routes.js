@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = router;
 const createCustumerController_1 = require("./controller/createCustumerController");
+const listCustomersController_1 = require("./controller/listCustomersController");
 //Funcao principal das rotas
 async function router(fastify, option) {
     //Rota get
@@ -9,7 +10,11 @@ async function router(fastify, option) {
         return { ok: true };
     });
     //Rota post 
-    fastify.post("customer", async (request, reply) => {
+    fastify.post("/customer", async (request, reply) => {
         return new createCustumerController_1.CreateCustomerController().handle(request, reply);
+    });
+    //Rota get
+    fastify.get('/listar', async (request, reply) => {
+        return new listCustomersController_1.ListCustomersController().handle(request, reply);
     });
 }

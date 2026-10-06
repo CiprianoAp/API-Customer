@@ -8,6 +8,7 @@ import {
 } from "fastify";
 
 import { CreateCustomerController } from "./controller/createCustumerController";
+import {ListCustomersController} from "./controller/listCustomersController"
 import { request } from "node:http";
 //Funcao principal das rotas
 export async function router(
@@ -20,7 +21,12 @@ export async function router(
         return {ok: true}
     })
     //Rota post 
-    fastify.post("customer", async (request: FastifyRequest, reply: FastifyReply)=>{
+    fastify.post("/customer", async (request: FastifyRequest, reply: FastifyReply)=>{
         return new CreateCustomerController().handle(request, reply)
+    })
+
+    //Rota get
+    fastify.get('/listar', async (request:FastifyRequest, reply: FastifyReply)=>{
+        return new ListCustomersController().handle(request, reply);
     })
 }
