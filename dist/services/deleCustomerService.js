@@ -10,7 +10,7 @@ class DeleteCustomerService {
         if (!id) {
             throw new Error("Solicitação errada.");
         }
-        const findCustomer = await prisma_1.default.customer.findFirt({
+        const findCustomer = await prisma_1.default.customer.findFirst({
             where: {
                 id: id,
             },
@@ -23,7 +23,7 @@ class DeleteCustomerService {
                 id: findCustomer.id
             }
         });
-        return { message: "Deletado com sucesso!" };
+        return { message: "Deletado com sucesso" };
     }
 }
 exports.DeleteCustomerService = DeleteCustomerService;

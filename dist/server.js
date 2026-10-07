@@ -11,7 +11,8 @@ const app = (0, fastify_1.default)({
 });
 //meedllewere
 app.setErrorHandler((error, request, reply) => {
-    reply.code(400).send({ message: error.message });
+    const message = error instanceof Error ? error.message : "Internal server error";
+    reply.code(400).send({ message });
 });
 const start = async () => {
     //Chamar a rota

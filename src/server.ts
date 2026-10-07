@@ -8,7 +8,8 @@ const app = fastify({
 
 //meedllewere
 app.setErrorHandler((error, request, reply)=>{
-    reply.code(400).send({message: error.message})
+    const message = error instanceof Error ? error.message : "Internal server error";
+    reply.code(400).send({message})
 })
 
 

@@ -3,7 +3,7 @@ import { DeleteCustomerService } from "../services/deleCustomerService";
 
 class DeleteCustomerController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
-    const { id } = request.body as { id: string | number };
+    const { id } = request.body as { id: string };
 
     const customerService = new DeleteCustomerService();
 
